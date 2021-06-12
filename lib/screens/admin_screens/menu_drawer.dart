@@ -71,7 +71,7 @@ class DrawerCode extends StatelessWidget {
         leading: Icon(Icons.settings_applications_rounded),
         title: Text('   Register Book'),
         onTap: () {
-      Navigator.pop(context);
+      //Navigator.pop(context);
          Navigator.push(
             context, MaterialPageRoute(builder: (context) => ()));
        },
