@@ -66,16 +66,16 @@ class DrawerCode extends StatelessWidget {
               context, MaterialPageRoute(builder: (context) => registerBook()));
         },
       ),
-      // Divider(),
-      // ListTile(
-      //  leading: Icon(Icons.settings_applications_rounded),
-      //  title: Text('   Register Book'),
-      //  onTap: () {
-      //Navigator.pop(context);
-      //   Navigator.push(
-      //      context, MaterialPageRoute(builder: (context) => ()));
-      // },
-      //  ),
+       Divider(),
+       ListTile(
+        leading: Icon(Icons.settings_applications_rounded),
+        title: Text('   Register Book'),
+        onTap: () {
+      Navigator.pop(context);
+         Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ()));
+       },
+        ),
     ]));
   }
 }
