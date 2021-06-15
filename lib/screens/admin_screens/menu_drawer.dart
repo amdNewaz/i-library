@@ -6,6 +6,7 @@ import 'dart:ui';
 import 'package:i_library/screens/appBar.dart';
 import 'package:i_library/screens/admin_screens/overdues/overdues.dart';
 import 'package:i_library/screens/registerBook.dart';
+import 'package:i_library/screens/bookDetails.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -66,16 +67,16 @@ class DrawerCode extends StatelessWidget {
               context, MaterialPageRoute(builder: (context) => registerBook()));
         },
       ),
-       Divider(),
-       ListTile(
+      Divider(),
+      ListTile(
         leading: Icon(Icons.settings_applications_rounded),
-        title: Text('   Register Book'),
+        title: Text('   Books'),
         onTap: () {
-      //Navigator.pop(context);
-         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ()));
-       },
-        ),
+          //Navigator.pop(context);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => bookDetails()));
+        },
+      ),
     ]));
   }
 }
