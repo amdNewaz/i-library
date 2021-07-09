@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:i_library/router.dart';
+import 'package:i_library/screens/admin_screens/admin_home.dart';
 import 'package:i_library/screens/mainLanding.dart';
 import 'package:i_library/screens/signUp.dart';
 
@@ -9,6 +11,8 @@ void main() => runApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: signUp(),
+        initialRoute: '/Adminhome',
+        onGenerateRoute: createRoute,
+        //home: AdminHome(),
       ),
     );

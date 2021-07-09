@@ -3,30 +3,27 @@
 import 'package:flutter/material.dart';
 import 'package:i_library/models/settings.dart';
 import 'package:i_library/screens/appBar.dart';
-import 'package:i_library/screens/admin_screens/rent_settings/rent_main';
+import 'package:i_library/screens/admin_screens/rent_settings/rent_main.dart';
 
-class BorrowBook extends StatefulWidget {
-//static Route route() => MaterialPageRoute(builder: (context) => BorrowBook());
-
+//class RentPeriod extends StatefulWidget {
   static Route route({data}) =>
-      MaterialPageRoute(builder: (context) => BorrowBook(data: data));
-
+      MaterialPageRoute(builder: (context) => RentPeriod(data: data));
   //final bool _isEditing;
   final Setting _data;
-
   // get isEditing => _isEditing;
-
   get data => _data;
-  BorrowBook({data})
+  RentPeriod({data})
       : //_isEditing = isEditing,
         _data = data;
 
   @override
-  Borrow createState() => Borrow();
-}
+  //Period createState() => Period();
+//}
 
-class Borrow extends State<BorrowBook> {
-  var _chosenValue;
+//class RentPeriod extends StatelessWidget {
+
+ // final Setting data;
+  //var _chosenValue;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class Borrow extends State<BorrowBook> {
           child: Column(children: [
             Padding(padding: EdgeInsets.all(60)),
             Text(
-              "Book Borrow Limit",
+              "Book Rent Period",
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 30,
@@ -50,13 +47,10 @@ class Borrow extends State<BorrowBook> {
               style: TextStyle(color: Colors.white),
               iconEnabledColor: Colors.black,
               items: <String>[
-                '1',
-                '2',
-                '3',
-                '4',
-                '5',
-                '6',
-                '7',
+                '7 days ',
+                '14 days',
+                '24 days',
+                '30 days',
               ].map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -64,20 +58,17 @@ class Borrow extends State<BorrowBook> {
                     value,
                     style: TextStyle(color: Colors.black),
                   ),
-                  // onTap: (value) {widget.data.setMaxLimit(value);},
                 );
               }).toList(),
               hint: Text(
-                "Set Max Limit--",
+                "Set period--",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w500),
               ),
               onChanged: (String value) {
-                setState(() {
-                  _chosenValue = value;
-                  //widget._data.setMaxLimit(_chosenValue);
+                setState(() { _chosenValue = value;
                 });
               },
             ),
@@ -87,12 +78,13 @@ class Borrow extends State<BorrowBook> {
           //FloatingActionButtonLocation.miniStartDocked,
         ),
       ),
+
+      //floatingActionButton:
+      //FloatingActionButtonLocation.miniStartDocked,
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pop(context, widget.data);
-
-            //Navigator.push(
-            //    context, MaterialPageRoute(builder: (context) => Rent2()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Rent2()));
           },
           backgroundColor: Colors.blue,
           child: Text('   Done    '),
@@ -100,5 +92,4 @@ class Borrow extends State<BorrowBook> {
     );
   }
 }
-
 */

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:i_library/models/settings.dart';
 import 'package:i_library/screens/appBar.dart';
 
 class TimeFrame extends StatefulWidget {

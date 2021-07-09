@@ -12,13 +12,6 @@ class _appBar extends State<adminAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: Icon(Icons.dehaze),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MenuDrawer()));
-        },
-      ),
       toolbarHeight: 80,
       title: Column(
         children: [
