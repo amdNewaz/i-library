@@ -1,0 +1,68 @@
+{
+  "User": [
+    {
+
+      "name": "Samiya Hussain",
+      "email": "samu@mail.com",
+      "password": "123",
+      "nationality": "bd",
+      "university": "UTM",
+      "address": "ctg college rd",
+      "contact": 420
+    },
+    {
+      
+      "name": "sarim Hussain",
+      "email": "saru@mail.com",
+      "password": "321",
+      "nationality": "pk",
+      "university": "UTM",
+      "address": "dci",
+      "contact": 230
+    },
+    {
+ 
+      "name": "fgdf Hussain",
+      "email": "fgghgf@mail.com",
+      "password": "34534",
+      "nationality": "fhgfpk",
+      "university": "UTM",
+      "address": "fghgf",
+      "contact": 233420
+    }
+  ],
+  "Book": [
+    {
+      "Title": "The Amazing world of Java",
+      "Author": "Samiya Writerinsky",
+      "ISBN": "123543",
+      "Genre": "Education",
+      "Book Condition": "Good",
+      "Available:": true
+    },
+    {
+      "Title": "You are awesome",
+      "Author": "The world",
+      "ISBN": "123543",
+      "Genre": "Comedy",
+      "Book Condition": "Good",
+      "Available:": false
+    },
+    {
+      "Title": "You are awesome",
+      "Author": "The world",
+      "ISBN": "123543",
+      "Genre": "Comedy",
+      "Book Condition": "Good",
+      "Available:": true
+    },
+    {
+      "Title": "You are awesome",
+      "Author": "The world",
+      "ISBN": "123543",
+      "Genre": "Comedy",
+      "Book Condition": "Good",
+      "Available:": false
+    }
+  ]
+}
