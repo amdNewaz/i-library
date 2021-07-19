@@ -4,113 +4,74 @@ import 'package:i_library/models/settings.dart';
 import 'package:i_library/screens/admin_screens/adminAppBar.dart';
 import 'package:i_library/screens/admin_screens/admin_home.dart';
 import 'package:i_library/screens/admin_screens/menu_drawer.dart';
+import 'package:i_library/services/rentsetting/setting_service_rest.dart';
 
-import 'body.dart';
+class RentSettingScreen extends StatefulWidget {
+  int borrowLimit;
+  int rentPeriod;
+  //dynamic listservices;
+  //RentSettingScreen();
+  final List<int> dropbrowlimit = [4, 6, 10];
+  final List<int> droprent = [14, 28, 10];
+  //final RentSettingScreen screen;
+  _rentState createState() => _rentState();
+  static Route route() =>
+      MaterialPageRoute(builder: (_) => RentSettingScreen());
+}
 
-class RentSettingScreen extends StatelessWidget {
-  final List<BorrowLimit> borrowLimit;
-  final List<RentPeriod> rentPeriod;
+// RentSettingScreen({this.borrowLimit, this.rentPeriod, this.screen, List});
+class _rentState extends State<RentSettingScreen> {
+  List<Settings> _settings;
 
-  RentSettingScreen({this.borrowLimit, this.rentPeriod});
+  get borrowLimit => null;
+  void initState() {
+    SettingServiceRest.fetchSettings().then((value) {
+      setState(() {
+        _settings.addAll(value);
+      });
+    });
+    super.initState();
+  }
 
+  @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => Future.value(Navigator.canPop(context)),
-      child: Scaffold(
-        appBar: adminAppBar(),
-        body: ListView(
-          children: [
-            _buildTextLisTile(
-              title1: "Borrow Book Limit",
-              subtitle1: "The amount of books that be borrowed at a time.",
-              index: borrowLimit.length,
-              screen: this, //_state,
+    return Scaffold(
+      appBar: adminAppBar(),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text("Borrow Book Limit"),
+            subtitle: Text("The amount of books that be borrowed at a time."),
+            trailing: DropdownButton(
+              value: widget.borrowLimit,
+              items: <int>[4, 5, 6].map<DropdownMenuItem<int>>((int value) {
+                return DropdownMenuItem<int>(
+                  value: value, //borrowLimit.value
+                  child: Text("$value"),
+                );
+              }).toList(),
+              onChanged: (newValue) =>
+                  setState(() => widget.borrowLimit = newValue),
             ),
-            _buildTextLisTile(
-              title1: "Rent period",
-              subtitle1: "Total days customer can keep book.",
-              index: rentPeriod.length,
-              screen: this, //_state,
-            )
-          ],
-        ),
-        drawer: DrawerCode(),
+          ),
+          ListTile(
+            title: Text("Rent period"),
+            subtitle: Text("Total days customer can keep book."),
+            trailing: DropdownButton(
+              value: widget.rentPeriod,
+              items: <int>[10, 14, 21].map<DropdownMenuItem<int>>((int value) {
+                return DropdownMenuItem<int>(
+                  value: value, //borrowLimit.value
+                  child: Text("$value"),
+                );
+              }).toList(),
+              onChanged: (newValue) =>
+                  setState(() => widget.rentPeriod = newValue),
+            ),
+          ),
+        ],
       ),
-    );
-  }
-
-  ListTile _buildTextLisTile(
-      {title1, subtitle1, index, screen, value1, value2}) {
-    return ListTile(
-      title: Text(title1),
-      subtitle: Text(subtitle1),
-      trailing: _DropdownButtonBorrow(index: index, screen: screen),
-    );
-  }
-}
-
-class _DropdownButtonBorrow extends StatefulWidget {
-  final int index;
-  final RentSettingScreen screen;
-  // dynamic value1;
-  //dynamic value2;
-  _DropdownButtonBorrow({this.index, this.screen});
-
-  @override
-  __DropdownButtonBorrowState createState() => __DropdownButtonBorrowState();
-}
-
-class __DropdownButtonBorrowState extends State<_DropdownButtonBorrow> {
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton(
-      value: widget.screen.borrowLimit[widget
-          .index], //widget.value1[widget.index], //widget._state.borrowLimit[widgit.index]
-      items:
-          widget.screen.borrowLimit //widget.value1 //widget._state.borrowLimit
-              .map(
-                (borrowLimit) => DropdownMenuItem(
-                  value: borrowLimit, //borrowLimit.value
-                  child: Text("${borrowLimit.value}"),
-                ),
-              )
-              .toList(),
-      onChanged: (newValue) => setState(() => widget
-              .screen.borrowLimit[widget.index] =
-          newValue), //widget.value1[widget.index] =//widget._state.borrowLimit[widgit.index]
-    );
-  }
-}
-
-class _DropdownButtonRent extends StatefulWidget {
-  final int index;
-  final RentSettingScreen screen;
-  // dynamic value1;
-  //dynamic value2;
-  _DropdownButtonRent({this.index, this.screen});
-
-  @override
-  __DropdownButtonRentState createState() => __DropdownButtonRentState();
-}
-
-class __DropdownButtonRentState extends State<_DropdownButtonRent> {
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton(
-      value: widget.screen.rentPeriod[widget
-          .index], //widget.value1[widget.index], //widget._state.borrowLimit[widgit.index]
-      items:
-          widget.screen.rentPeriod //widget.value1 //widget._state.borrowLimit
-              .map(
-                (rentPeriod) => DropdownMenuItem(
-                  value: rentPeriod, //borrowLimit.value
-                  child: Text("${rentPeriod.days}"),
-                ),
-              )
-              .toList(),
-      onChanged: (newValue) => setState(() => widget
-              .screen.rentPeriod[widget.index] =
-          newValue), //widget.value1[widget.index] =//widget._state.borrowLimit[widgit.index]
+      drawer: DrawerCode(),
     );
   }
 }

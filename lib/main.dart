@@ -11,8 +11,7 @@ void main() => runApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/Adminhome',
+        initialRoute: '/main',
         onGenerateRoute: createRoute,
-        //home: AdminHome(),
       ),
     );

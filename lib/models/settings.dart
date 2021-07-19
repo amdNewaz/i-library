@@ -1,35 +1,21 @@
-import 'package:i_library/screens/admin_screens/rent_settings/rent_period';
+class Settings {
+  int settingID;
+  int borrowLimit;
+  int rentPeriod;
 
-class Setting {
-  List<BorrowLimit> borrowLimit;
-  List<RentPeriod> rentPeriod;
+  Settings({this.settingID, this.borrowLimit, this.rentPeriod});
 
-  Setting({this.borrowLimit, this.rentPeriod});
+  Settings.fromJson(Map<String, dynamic> json) {
+    settingID = json['settingID'];
+    borrowLimit = json['borrowLimit'];
+    rentPeriod = json['rentPeriod'];
+  }
 
-  Setting.fromJson(Map<String, dynamic> json)
-      : this(
-            borrowLimit: (json['borrowLimit'] as List)
-                .map((item) => BorrowLimit.fromJson(item))
-                .toList(),
-            rentPeriod: (json['rentPeriod'] as List)
-                .map((item) => RentPeriod.fromJson(item))
-                .toList());
-}
-
-class BorrowLimit {
-  int value;
-
-  BorrowLimit({this.value});
-  BorrowLimit.fromJson(Map<String, dynamic> json) : this(value: json['value']);
-
-  Map<String, dynamic> toJson() => {'value': value};
-}
-
-class RentPeriod {
-  int days;
-
-  RentPeriod({this.days});
-  RentPeriod.fromJson(Map<String, dynamic> json) : this(days: json['days']);
-
-  Map<String, dynamic> toJson() => {'days': days};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['settingID'] = this.settingID;
+    data['borrowLimit'] = this.borrowLimit;
+    data['rentPeriod'] = this.rentPeriod;
+    return data;
+  }
 }

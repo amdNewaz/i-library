@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_library/screens/admin_screens/admin_home.dart';
 import 'package:i_library/screens/admin_screens/menu_drawer.dart';
 
 class adminAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -6,6 +7,8 @@ class adminAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   _appBar createState() => _appBar();
+  final adHome _state;
+  const adminAppBar({state}) : _state = state;
 }
 
 class _appBar extends State<adminAppBar> {

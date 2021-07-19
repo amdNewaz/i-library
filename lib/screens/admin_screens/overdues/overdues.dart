@@ -5,6 +5,7 @@ import 'package:i_library/screens/admin_screens/overdues/user_due_info.dart';
 import 'package:i_library/screens/appBar.dart';
 import 'package:flutter/material.dart';
 import 'user_due_info.dart';
+import 'package:i_library/models/users.dart';
 
 class OverDue extends StatefulWidget {
   @override
@@ -13,6 +14,12 @@ class OverDue extends StatefulWidget {
 
 class Over extends State<OverDue> {
   @override
+  User _user;
+  get user => _user;
+  set user(uzr) => setState(() {
+        _user = uzr;
+      });
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),

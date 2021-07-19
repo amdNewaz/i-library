@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Rest {
-  static const String _baseUrl = 'https://192.168.10.24:3000';
+  static const String _baseUrl = 'http://192.168.10.17:3000';
 
   // Send a GET request to retrieve data from a REST server
   static Future get(String endpoint) async {
-    final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
+    var url = 'http://192.168.10.17:3000/$endpoint';
+    final response = await http.get(url);
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body);

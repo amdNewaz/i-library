@@ -1,14 +1,35 @@
 import 'dart:ui';
-
+import 'package:i_library/models/books.dart';
 import 'package:flutter/material.dart';
 import 'package:i_library/screens/appBar.dart';
+import 'package:i_library/services/book_service.dart';
 
-class bookDetails extends StatefulWidget {
+class BookDetails extends StatefulWidget {
+  static Book book;
+  Book _book;
+  static int idx;
   @override
-  _bookDetails createState() => _bookDetails();
+  BookDetails(Book bk) {
+    _book = bk;
+    book = bk;
+  }
+  static Route route() =>
+      MaterialPageRoute(builder: (context) => BookDetails(book));
+  _BookDetails createState() => _BookDetails();
 }
 
-class _bookDetails extends State<bookDetails> {
+class _BookDetails extends State<BookDetails> {
+  /* List<Book> _bks = List<Book>();
+
+  void initState() {
+    BookService.fetchBook().then((value) {
+      setState(() {
+        _bks.addAll(value);
+      });
+    });
+    super.initState();
+  }*/
+
   void _doNothing() {}
   @override
   Widget build(BuildContext context) {
@@ -26,7 +47,7 @@ class _bookDetails extends State<bookDetails> {
                   fontSize: 15,
                 )),
             Text(
-              "The Amazing World of Java",
+              widget._book.title,
               textAlign: TextAlign.right,
               style: TextStyle(
                 color: Colors.blue,
@@ -43,7 +64,7 @@ class _bookDetails extends State<bookDetails> {
                   fontSize: 15,
                 )),
             Padding(padding: EdgeInsets.fromLTRB(10, 0, 0, 10)),
-            Text("Kick Buttowski",
+            Text(widget._book.author,
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.blue,
@@ -57,7 +78,7 @@ class _bookDetails extends State<bookDetails> {
                   color: Colors.grey,
                   fontSize: 15,
                 )),
-            Text("12341569",
+            Text(widget._book.iSBN,
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.blue,
@@ -72,7 +93,7 @@ class _bookDetails extends State<bookDetails> {
                   color: Colors.grey,
                   fontSize: 15,
                 )),
-            Text("Educational",
+            Text(widget._book.genre,
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.blue,
@@ -87,7 +108,7 @@ class _bookDetails extends State<bookDetails> {
                   color: Colors.grey,
                   fontSize: 15,
                 )),
-            Text("Good",
+            Text(widget._book.bookCondition,
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.blue,

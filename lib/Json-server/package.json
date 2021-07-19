@@ -1,7 +1,7 @@
 {
     "description": "Imapness local package",
     "scripts": {
-        "test": "json-server --host 192.168.10.24 _db.json",
-        "server": "json-server --host 192.168.10.24 db.json"
+        "test": "json-server --host 192.168.10.17 _db.json",
+        "server": "json-server --host 192.168.10.17 db.json"
     }
 }

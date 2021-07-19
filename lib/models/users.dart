@@ -1,75 +1,69 @@
 class User {
-  int _id;
-  String _name;
-  String _email;
-  String _password;
-  String _nationality;
-  String _address;
-  String _contact;
+  int id;
+  String name;
+  String email;
+  String password;
+  String nationality;
+  String university;
+  String address;
+  int contact;
+  get _id => id;
+  set Id(value) => id = value;
 
-  get id => _id;
-  set id(value) => _id = value;
+  get _name => name;
+  set Name(value) => name = value;
 
-  get name => _name;
-  set name(value) => _name = value;
+  get _email => email;
+  set Email(value) => email = value;
 
-  get email => _email;
-  set email(value) => _email = value;
+  get _password => password;
+  set Password(value) => password = value;
 
-  get password => _password;
-  set password(value) => _password = value;
+  get _nationality => nationality;
+  set Nationality(value) => nationality = value;
 
-  get nationality => _nationality;
-  set nationality(value) => _nationality = value;
+  set University(value) => university = value;
 
-  get address => _address;
-  set address(value) => _address = value;
+  get _address => address;
+  set Address(value) => address = value;
 
-  get contact => _contact;
-  set contact(value) => _contact = value;
+  get _contact => contact;
+  set Contact(value) => contact = value;
+  void setname(String value) {
+    name = value;
+  }
 
-  User(
-      {int id,
-      String name = '',
-      String email = '',
-      String password = '',
-      String nationality = '',
-      String address = '',
-      String contact = ''})
-      : _id = id,
-        _name = name,
-        _email = email,
-        _password = password,
-        _nationality = nationality,
-        _address = address,
-        _contact = contact;
+  User(String Name, String Email, String Password, String Nationality,
+      String University, String Address, int Contact)
+      : name = Name,
+        email = Email,
+        password = Password,
+        nationality = Nationality,
+        university = University,
+        address = Address,
+        contact = Contact;
 
-  User.copy(User from)
-      : this(
-            id: from.id,
-            name: from.name,
-            email: from.email,
-            password: from.password,
-            nationality: from.nationality,
-            address: from.address,
-            contact: from.contact);
-  User.fromJson(Map<String, dynamic> json)
-      : this(
-            id: json['id'],
-            name: json['name'],
-            email: json['email'],
-            password: json['password'],
-            nationality: json['nationality'],
-            address: json['address'],
-            contact: json['contact']);
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    password = json['password'];
+    nationality = json['nationality'];
+    university = json['university'];
+    address = json['address'];
+    contact = json['contact'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'email': email,
-        'password': password,
-        'nationality': nationality,
-        'address': address,
-        'contact': contact
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['password'] = this.password;
+    data['nationality'] = this.nationality;
+    data['university'] = this.university;
+    data['address'] = this.address;
+    data['contact'] = this.contact;
+    return data;
+  }
 }

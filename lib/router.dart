@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:i_library/main.dart';
-import 'package:i_library/models/settings.dart';
 import 'package:i_library/screens/admin_screens/admin_home.dart';
-import 'package:i_library/screens/admin_screens/rent_settings/borrow_book.dart';
-//import 'package:i_library/screens/admin_screens/rent_settings/rent_main';
-import 'package:i_library/screens/admin_screens/rent_settings/rent_period';
-import 'package:i_library/screens/admin_screens/rent_settings/rent_settings.dart';
-import 'package:i_library/screens/admin_screens/rent_settings/time_frame.dart';
+import 'package:i_library/models/books.dart';
+import 'package:i_library/screens/admin_screens/books/bookDetails.dart';
+import 'package:i_library/screens/admin_screens/books/bookList.dart';
+import 'package:i_library/screens/admin_screens/rent_settings/rent_main.dart';
+import 'package:i_library/screens/mainLanding.dart';
+import 'package:i_library/screens/signUp.dart';
+import 'package:i_library/screens/login.dart';
 
 Route<dynamic> createRoute(settings) {
   switch (settings.name) {
@@ -14,15 +15,28 @@ Route<dynamic> createRoute(settings) {
     case '/Adminhome':
       return AdminHome.route();
 
-    case '/RentSettings':
-      return MaterialPageRoute(
-        builder: (context) => RentSettingScreen(
-            borrowLimit: settings.arguments['borrowLimit'],
-            rentPeriod: settings.arguments['rentPeriod']),
-      );
+    case '/RentMain':
+      return Rent2.route();
 
-      //case '/TimeFrame':
-      //return MaterialPageRoute(builder: (context) => TimeFrame());
-      return null;
+    case '/BookDetails':
+      return BookDetails.route();
+
+    case '/BookList':
+      return bookList.route();
+    case '/main':
+      return mainLandingPage.route();
+    case '/Signup':
+      return signUp.route();
+
+    case '/Login':
+      return login.route();
   }
+  /*  case '/new':
+      return EditScreen.route(isEditing: false);
+
+    case '/edit':
+      return EditScreen.route(
+          isEditing: true);
+  }
+  return null;*/
 }

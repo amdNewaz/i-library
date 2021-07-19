@@ -3,8 +3,12 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:i_library/screens/appBar.dart';
+import 'package:i_library/screens/signUp.dart';
+import 'package:i_library/screens/login.dart';
 
 class mainLandingPage extends StatefulWidget {
+  static Route route() =>
+      MaterialPageRoute(builder: (context) => mainLandingPage());
   @override
   _mainLandingPageState createState() => _mainLandingPageState();
 }
@@ -36,12 +40,12 @@ class _mainLandingPageState extends State<mainLandingPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: buildContainer_Buttons('Login as Student', 1),
+                  child: buildContainer_Buttons('Login as Student', 2),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child:
-                      buildContainer_Buttons('Login as system adminstrator', 1),
+                      buildContainer_Buttons('Login as system adminstrator', 3),
                 ),
               ],
             ),
@@ -65,7 +69,18 @@ class _mainLandingPageState extends State<mainLandingPage> {
           side: BorderSide(color: Colors.grey[800], width: 2),
         ),
         onPressed: () {
-          print('Pressed');
+          if (num == 1) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => signUp()));
+          }
+          if (num == 2) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => login()));
+          }
+          if (num == 3) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => login()));
+          }
         },
       ),
     );

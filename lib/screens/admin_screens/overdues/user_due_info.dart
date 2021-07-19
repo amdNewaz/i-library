@@ -7,8 +7,11 @@ import 'package:i_library/screens/admin_screens/overdues/overdues.dart';
 import 'email_sent.dart';
 
 class UserDue extends StatelessWidget {
-  Choice choice;
-  UserDue({this.choice});
+  final Choice _choice;
+
+  //const UserDue({this.stat,this.choice});
+
+  const UserDue({choice}) : _choice = choice;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class UserDue extends StatelessWidget {
                 fontSize: 15,
               )),
           Padding(padding: EdgeInsets.fromLTRB(10, 0, 0, 10)),
-          Text("${choice.title}",
+          Text("${_choice.title}",
               textAlign: TextAlign.right,
               style: TextStyle(
                 color: Colors.blue,
@@ -56,7 +59,7 @@ class UserDue extends StatelessWidget {
                 color: Colors.grey,
                 fontSize: 15,
               )),
-          Text("${choice.title}@gmail.com",
+          Text("$_choice.use",
               textAlign: TextAlign.right,
               style: TextStyle(
                 color: Colors.blue,
