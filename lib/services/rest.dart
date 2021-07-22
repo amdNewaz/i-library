@@ -16,6 +16,7 @@ class Rest {
 
   // Send a POST request to add a new in the REST server
   static Future post(String endpoint, {dynamic data}) async {
+    print(jsonEncode(data));
     final response = await http.post(Uri.parse('$_baseUrl/$endpoint'),
         headers: {'Content-Type': 'application/json'}, body: jsonEncode(data));
 

@@ -47,13 +47,12 @@ class User {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
     data['name'] = this.name;
     data['email'] = this.email;
     data['password'] = this.password;
     data['nationality'] = this.nationality;
     data['address'] = this.address;
-    data['phone'] = this.contact;
+    data['phone'] = this.contact.toString();
     return data;
   }
 }

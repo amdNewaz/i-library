@@ -10,14 +10,13 @@ void main() {
   //di.init();
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'i_library',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      /*initialRoute: '/Adminhome',
+        debugShowCheckedModeBanner: false,
+        title: 'i_library',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        /*initialRoute: '/Adminhome',
       onGenerateRoute: createRoute,*/
-      home: Login(),
-    ),
+        home: mainLandingPage()),
   );
 }

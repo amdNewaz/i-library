@@ -8,7 +8,7 @@ class UserService {
   }
 
   static Future<User> addUser(User uzr) async {
-    final json = await Rest.post('users', data: uzr);
+    final json = await Rest.post('add_user', data: uzr);
     return User.fromJson(json);
   }
 
