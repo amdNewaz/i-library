@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Rest {
-  static const String _baseUrl = 'https://192.168.10.8:3000';
+  static const String _baseUrl = 'https://i-mapness.herokuapp.com';
 
   // Send a GET request to retrieve data from a REST server
   static Future get(String endpoint) async {
     final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
-
+    print(response.body);
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     }

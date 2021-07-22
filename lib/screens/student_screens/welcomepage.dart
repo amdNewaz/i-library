@@ -15,6 +15,7 @@ class _welcomepageState extends State<welcomepage> {
     return Container(
         child: Scaffold(
             appBar: appBar(),
+            
             body: Center(
               child: Column(
                 children: [

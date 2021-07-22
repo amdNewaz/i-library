@@ -1,9 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:i_library/screens/admin_screens/menu_drawer.dart';
 import 'package:i_library/screens/appBar.dart';
+import 'package:i_library/screens/drawer.dart';
 
 class message extends StatefulWidget {
+  String email;
+  message(this.email);
   @override
   _messageState createState() => _messageState();
 }
@@ -13,6 +17,7 @@ class _messageState extends State<message> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
+      drawer: drawer(widget.email),
       body: Container(
         child: Center(
           child: Column(children: [

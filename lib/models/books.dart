@@ -4,7 +4,7 @@ class Book {
   String iSBN;
   String genre;
   String bookCondition;
-  bool available;
+  int available;
 
   Book(
       {this.title,
@@ -20,7 +20,7 @@ class Book {
     iSBN = json['ISBN'];
     genre = json['Genre'];
     bookCondition = json['Book Condition'];
-    available = json['Available:'];
+    available = json['Available'];
   }
 
   Map<String, dynamic> toJson() {
@@ -30,7 +30,7 @@ class Book {
     data['ISBN'] = this.iSBN;
     data['Genre'] = this.genre;
     data['Book Condition'] = this.bookCondition;
-    data['Available:'] = this.available;
+    data['Available'] = this.available;
     return data;
   }
 }

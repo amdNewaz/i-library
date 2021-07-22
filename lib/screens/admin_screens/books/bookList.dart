@@ -18,6 +18,7 @@ class _bookList extends State<bookList> {
     BookService.fetchBook().then((value) {
       setState(() {
         _bks.addAll(value);
+        print(_bks[0].title);
       });
     });
     super.initState();
@@ -110,7 +111,7 @@ class _bookList extends State<bookList> {
                                         textColor: Colors.white,
                                         color: Colors.white,
                                       ),
-                                      (_bks[index].available)
+                                      (_bks[index].available == 1)
                                           ? Text("available")
                                           : Text("rented")
                                     ],
@@ -137,7 +138,7 @@ class _bookList extends State<bookList> {
                             child: ListView.builder(
                               itemCount: _bks.length,
                               itemBuilder: (BuildContext context, int index) {
-                                if (_bks[index].available) {
+                                if (_bks[index].available == 0) {
                                   return Card(
                                     child: Column(
                                       children: <Widget>[
@@ -164,7 +165,7 @@ class _bookList extends State<bookList> {
                                           textColor: Colors.white,
                                           color: Colors.white,
                                         ),
-                                        (_bks[index].available)
+                                        (_bks[index].available == 1)
                                             ? Text("available")
                                             : Text("rented")
                                       ],
@@ -193,8 +194,8 @@ class _bookList extends State<bookList> {
                             height: 200.0,
                             child: ListView.builder(
                               itemCount: _bks.length,
-                              itemBuilder: (BuildContext context, int index2) {
-                                if (!_bks[index2].available) {
+                              itemBuilder: (BuildContext context, int index) {
+                                if (_bks[index].available == 1) {
                                   return Card(
                                     child: Column(
                                       children: <Widget>[
@@ -209,7 +210,7 @@ class _bookList extends State<bookList> {
                                           padding: EdgeInsets.fromLTRB(
                                               40, 10, 40, 10),
                                           label: Text(
-                                            "${_bks[index2].title}",
+                                            "${_bks[index].title}",
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 20),
@@ -218,17 +219,18 @@ class _bookList extends State<bookList> {
                                             Icons.library_books,
                                             color: Colors.white,
                                           ),
-                                          textColor: Colors.black,
+                                          textColor: Colors.white,
                                           color: Colors.white,
                                         ),
-                                        (_bks[index2].available)
+                                        (_bks[index].available == 1)
                                             ? Text("available")
                                             : Text("rented")
                                       ],
                                     ),
                                   );
-                                } else
+                                } else {
                                   return SizedBox(height: 0);
+                                }
                               },
                             ),
                           ),

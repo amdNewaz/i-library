@@ -42,7 +42,7 @@ class User {
     password = json['password'];
     nationality = json['nationality'];
     address = json['address'];
-    contact = json['contact'];
+    contact = int.parse(json['phone']);
   }
 
   Map<String, dynamic> toJson() {
@@ -53,7 +53,7 @@ class User {
     data['password'] = this.password;
     data['nationality'] = this.nationality;
     data['address'] = this.address;
-    data['contact'] = this.contact;
+    data['phone'] = this.contact;
     return data;
   }
 }

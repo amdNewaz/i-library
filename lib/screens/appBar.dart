@@ -12,6 +12,7 @@ class _appBarState extends State<appBar> {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: 80,
+      
       title: Column(
         children: [
           Container(
@@ -37,5 +38,41 @@ class _appBarState extends State<appBar> {
         bottom: Radius.circular(20),
       )),
     );
+  }
+
+  ListTile buildListTiledrawer(text, icon, BuildContext context, num) {
+    return ListTile(
+        leading: Icon(icon),
+        title: Text(text),
+        onTap: () async {
+          if (num == 2) {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => tutor_request(widget.student)),
+            // );
+          }
+          if (num == 3) {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => StudentProfile(widget.student)),
+            // );
+
+          }
+          if (num == 4) {
+            // Student returnData = await Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => EditStudentProfile(widget.student)),
+            // );
+            // if(returnData != null){
+            //   setState(() => widget.student[0]  = returnData);
+            // }
+          }
+          if (num == 5) {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => AboutDeveloper()),
+            // );
+          }
+        });
   }
 }
